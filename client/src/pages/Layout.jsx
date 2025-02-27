@@ -1,16 +1,16 @@
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useState } from "react";
+// import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Layout = ({isLoggedIn,userType}) => {
-  const [searchVal, setSearch] = useState("");
+const Layout = () => {
+  // const [searchVal, setSearch] = useState(""); //state up lifting
 
   return (
     <div>
-      <Navbar isLoggedIn={isLoggedIn} userType={userType} setSearch={setSearch} />
-      <Outlet context={{ searchVal }} />
+      <Navbar />
+      <Outlet />
       <Footer />
     </div>
   );

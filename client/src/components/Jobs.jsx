@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiTimeFive } from "react-icons/bi";
 import ViteSVG from ".././assets/vite.svg"
 import { Link } from "react-router-dom";
+// import { userContext } from "../contexts/UserContext";
+import { SearchContext } from "../contexts/SearchContext";
 
 
 const jDetails = [
@@ -246,13 +248,17 @@ const jDetails = [
   }
 ];
 
-const Jobs = ({ searchVal }) => {
+const Jobs =() => {
+  const {searchQuery} = useContext(SearchContext)
+  // console.log(searchQuery);
+  
   const [sortBy, setSortBy] = useState("");
 
 
   let filteredJobs = jDetails.filter((job) =>
-    job.job.toLowerCase().includes(searchVal.toLowerCase())
+    job.job.toLowerCase().includes((searchQuery || "").toLowerCase())
   );
+  
 
   if (sortBy === "nearMe") {
     filteredJobs = filteredJobs.sort((a, b) => a.distance - b.distance);

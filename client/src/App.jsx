@@ -10,17 +10,14 @@ import ApplyJobs from "./pages/ApplyJobs";
 import Loader from "./components/Loader";
 
 const App = () => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn")
-  const userType = localStorage.getItem("UserType");
-
-  console.log(isLoggedIn,userType);
+  
   
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} userType={userType} />}>
+          <Route element={<ProtectedRoutes/>}>
             <Route index element={<Home />} />
             <Route path="post-jobs" element={<PostJob />} />
             <Route path="apply-job" element={<ApplyJobs />}/>

@@ -1,8 +1,7 @@
 import { createContext, useState } from "react";
 
-export const SearchContext = createContext();
+export const SearchContext = createContext(); // Make sure this is exported properly
 
-// eslint-disable-next-line react/prop-types
 export const SearchProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -11,5 +10,4 @@ export const SearchProvider = ({ children }) => {
       {children}
     </SearchContext.Provider>
   );
-}
-
+};
